@@ -1,6 +1,6 @@
 package com.ucms.controller;
 
-import com.ucms.service.UserService;
+import com.ucms.service.ConfigService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,22 +11,18 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.inject.Inject;
 
 @Controller
-public class UserListController {
+public class HomeController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserListController.class);
-    private final UserService userService;
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
     @Inject
-    public UserListController(final UserService userService) {
-        this.userService = userService;
-    }
+    private ConfigService configService;
 
-    @RequestMapping("/user_list.html")
+    @RequestMapping({"/index.html", "/"})
     public ModelAndView getListUsersView() {
         LOGGER.debug("Received request to get user list view");
         ModelMap model = new ModelMap();
-        model.addAttribute("users", userService.getList());
-        return new ModelAndView("user_list", model);
+        model.addAttribute("texts", configService.findAll());
+        return new ModelAndView("index", model);
     }
 
 }

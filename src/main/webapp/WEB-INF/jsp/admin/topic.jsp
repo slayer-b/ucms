@@ -11,7 +11,7 @@
     <script src="<c:url value="/js/jsgrid.min.js"/>"></script>
 </head>
 <body>
-<h1><spring:message code="user.list"/></h1>
+<h1>Configs</h1>
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -19,7 +19,10 @@
                 <a class="nav-link" href="<c:url value="/admin"/>">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<c:url value="/admin/config"/>">config</a>
+                <a class="nav-link" href="<c:url value="/admin/configs.html"/>">config</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/admin/topic.html"/>">topics</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
@@ -27,12 +30,12 @@
         </ul>
     </div>
 </nav>
-<div class="row">
+<div class="row pl-3">
     <div id="jsGrid"></div>
 </div>
 
 <script>
-    $.ready(function () {
+    $(document).ready(function () {
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "400px",
@@ -42,14 +45,42 @@
             sorting: true,
             paging: true,
 
-            data: clients,
+            autoload: true,
+            pageLoading: true,
 
+            controller: {
+            	loadData: function(filter) {
+            		return $.ajax({
+            			type: "GET",
+            			url: "/admin/topic",
+            			data: filter,
+            			dataType: "JSON"
+            		});
+            	},
+            	insertItem: function(value) {
+            		return $.ajax({
+            			type: "POST",
+            			url: "/admin/topic",
+            			data: value,
+            			dataType: "JSON"
+            		});
+				},
+				updateItem: function(value) {
+            		return $.ajax({
+            			type: "POST",
+            			url: "/admin/topic",
+            			data: value,
+            			dataType: "JSON"
+            		});
+				},
+				deleteItem: function(a, b, c) {
+					console.log("insert");
+				}
+            },
             fields: [
-                { name: "Name", type: "text", width: 150, validate: "required" },
-                { name: "Age", type: "number", width: 50 },
-                { name: "Address", type: "text", width: 200 },
-                { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-                { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                { name: "id", type: "text", width: 50, editing: false },
+                { name: "value", type: "textarea", width: 550 },
+                { name: "active", type: "checkbox", width: 50, sorting: false },
                 { type: "control" }
             ]
         });

@@ -9,15 +9,9 @@ import javax.validation.constraints.Size;
 @Entity
 public class Config {
 
-    @Id
+	@Id
     @NotNull
-    @Size(max = 64)
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
-
-
-    @NotNull
-    @Size(max = 64)
+    @Size(max = 32)
     @Column(name = "key", nullable = false)
     private String key;
 
@@ -25,15 +19,16 @@ public class Config {
     @Column(name = "value", nullable = false)
     private String value;
 
-    public Long getId() {
-        return id;
-    }
+	public Config() {
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	}
 
-    public String getKey() {
+	public Config(String key, String value) {
+		this.key = key;
+		this.value = value;
+	}
+
+	public String getKey() {
         return key;
     }
 
