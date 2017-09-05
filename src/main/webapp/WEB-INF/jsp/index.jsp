@@ -37,6 +37,9 @@
 </nav>
 <div class="row">
     <div class="col-sm-3">
+		<div class="col-sm-8">
+			${texts['main']}
+		</div>
         <h3 style="background-color: darkblue;color: white;">Бобро пожаловать</h3>
         Тут будет какой-то оЧЧень важный текст, я серьезно !!!
         <div class="mt-1"><a class="btn btn-lg btn-success">Подать заявку</a></div>
