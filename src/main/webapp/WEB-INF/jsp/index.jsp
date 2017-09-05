@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>${texts[main.title]}</title>
+	<title>${texts['main.title']}</title>
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/jsgrid.min.css"/>">
     <script src="<c:url value="/js/jquery-3.2.1.min.js"/>"></script>
@@ -27,7 +27,7 @@
                 <a class="nav-link nav-white" href=".">Домой <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-white" href="<c:url value="topic"/>">Обсуждение</a>
+                <a class="nav-link nav-white" href="<c:url value="topics"/>">Обсуждение</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link nav-white disabled" href="#">Disabled</a>
@@ -36,9 +36,6 @@
     </div>
 </nav>
 <div class="row">
-    <div class="col-sm-8">
-    	${texts[main]}
-    </div>
     <div class="col-sm-3">
         <h3 style="background-color: darkblue;color: white;">Бобро пожаловать</h3>
         Тут будет какой-то оЧЧень важный текст, я серьезно !!!

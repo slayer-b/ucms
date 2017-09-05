@@ -9,4 +9,6 @@ import java.util.List;
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 
 	List<Topic> findByActive(Boolean active);
+
+	Topic findByName(String name);
 }

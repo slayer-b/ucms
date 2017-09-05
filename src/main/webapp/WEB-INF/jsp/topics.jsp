@@ -36,10 +36,12 @@
     </div>
 </nav>
 <div class="row">
-    <div class="col-sm-12">
-		<h1 class="text-center">${topic.name}</h1>
-		${topic.value}
-	</div>
+    <div class="col-sm-11 ml-2 mt-2">
+		<c:forEach items="${topics}" var="item">
+			<div><a href="?name=${item.name}">${item.name}</a></div>
+		</c:forEach>
+    </div>
+    <div class="col-sm-1"></div>
 </div>
 </body>
 </html>

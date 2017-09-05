@@ -16,6 +16,10 @@ public class TopicService {
 		return topicRepository.findByActive(Boolean.TRUE);
 	}
 
+	public Topic findByName(String name) {
+		return topicRepository.findByName(name);
+	}
+
 	public List<Topic> findAllJson() {
 		return topicRepository.findAll();
 	}
