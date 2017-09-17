@@ -25,6 +25,9 @@
                 <a class="nav-link" href="<c:url value="/admin/topic.html"/>">topics</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/admin/comment.html"/>">comments</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>

@@ -14,32 +14,19 @@
     	.nav-white {
     		color: white !important;
 		}
-		.active {
-			text-decoration: overline;
-		}
     </style>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: darkblue;">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link nav-white" href=".">Домой <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white" href="<c:url value="topics"/>">Обсуждение</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="row">
-    <div class="col-sm-12">
+
+<%@ include file="/WEB-INF/jspf/nav.jspf" %>
+
+<div class="row mt-4">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
 		<h1 class="text-center">${topic.name}</h1>
 		${topic.value}
 	</div>
+    <div class="col-sm-1"></div>
 </div>
 </body>
 </html>

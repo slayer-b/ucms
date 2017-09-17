@@ -43,9 +43,9 @@
             width: "100%",
             height: "400px",
 
-            inserting: true,
-            editing: true,
-            sorting: true,
+            inserting: false,
+            editing: false,
+            sorting: false,
             paging: true,
 
             autoload: true,
@@ -55,37 +55,22 @@
             	loadData: function(filter) {
             		return $.ajax({
             			type: "GET",
-            			url: "/admin/configs",
+            			url: "/admin/comment",
             			data: filter,
             			dataType: "JSON"
             		});
             	},
-            	insertItem: function(value) {
-            		return $.ajax({
-            			type: "POST",
-            			url: "/admin/configs",
-            			data: value,
-            			dataType: "JSON"
-            		});
-				},
-				updateItem: function(value) {
-            		return $.ajax({
-            			type: "POST",
-            			url: "/admin/configs",
-            			data: value,
-            			dataType: "JSON"
-            		});
-				},
 				deleteItem: function(a, b, c) {
-					console.log("insert");
+            		return $.ajax({
+            			type: "DELETE",
+            			url: "/admin/comment/" + a.id,
+            			dataType: "JSON"
+            		});
 				}
             },
             fields: [
-                { name: "key", type: "text", width: 150, validate: "required" },
-                { name: "value", type: "textarea", width: 500 },
-//                { name: "Address", type: "number", width: 200 },
-//                { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-//                { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                { name: "id", type: "text", width: 50, editing: false },
+                { name: "comment", type: "textarea", width: 550 },
                 { type: "control" }
             ]
         });

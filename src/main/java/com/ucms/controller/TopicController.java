@@ -1,6 +1,8 @@
 package com.ucms.controller;
 
+import com.ucms.domain.Comment;
 import com.ucms.domain.Topic;
+import com.ucms.service.CommentService;
 import com.ucms.service.ConfigService;
 import com.ucms.service.TopicService;
 import org.slf4j.Logger;
@@ -22,6 +24,8 @@ public class TopicController {
 	private TopicService topicService;
 	@Inject
 	private ConfigService configService;
+	@Inject
+	private CommentService commentService;
 
 	@RequestMapping(value = "topics", method = RequestMethod.GET)
 	public ModelAndView topics() {
@@ -41,6 +45,14 @@ public class TopicController {
 		Topic topic = topicService.findByName(name);
 		model.addAttribute("topic", topic);
 		return new ModelAndView("topic", model);
+	}
+
+	@RequestMapping(value = "comment/{text}", method = RequestMethod.GET)
+	public void comment(@PathVariable("text") String text) {
+		LOGGER.debug("Save comment");
+		Comment comment = new Comment();
+		comment.setComment(text);
+		commentService.save(comment);
 	}
 
 }

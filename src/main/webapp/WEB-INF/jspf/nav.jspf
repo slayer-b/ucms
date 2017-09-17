@@ -1,0 +1,16 @@
+<%@ page pageEncoding="UTF-8"%>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: darkblue;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link nav-white" href="/">Домой</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-white" href="<c:url value="topics"/>">Обсуждение</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-white disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>

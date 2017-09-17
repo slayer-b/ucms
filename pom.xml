@@ -22,6 +22,19 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype-oss-public</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencies>
 
         <!-- Spring Boot -->
@@ -96,11 +109,33 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.4</version>
+        </dependency>
+
+
     </dependencies>
 
-    <build>
+    <build>                       
 
         <plugins>
+            <!--<plugin>-->
+                <!--<groupId>com.jelastic</groupId>-->
+                <!--<artifactId>jelastic-maven-plugin</artifactId>-->
+                <!--<version>1.8</version>-->
+                <!--<configuration>-->
+                    <!--<email>[insert your Jelastic login]</email>-->
+                    <!--<password>[insert your Jelastic password]</password>-->
+                    <!--<context>[specify the context if you need it]</context>-->
+                    <!--<environment>[insert the name of Jelastic environment]</environment>-->
+                    <!--<comment>[insert comment if you need it]</comment>-->
+
+                    <!--<api_hoster>[put here API of your hoster] &ndash;&gt;</api_hoster>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
             <!-- Spring Boot Maven -->
 

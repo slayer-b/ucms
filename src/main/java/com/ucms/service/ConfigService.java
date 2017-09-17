@@ -17,11 +17,11 @@ public class ConfigService {
 	private Map<String, String> configs = null;
 
 	public Map<String, String> findAll() {
-		if (configs == null) {
+//		if (configs == null) {
 			configs = configRepository.findAll().stream()
 //					.collect(Collectors.toMap(Config::getKey, Config::getValue));
 					.collect(Collectors.toMap(Config::getKey, Config::getValue));
-		}
+//		}
 		return configs;
 	}
 

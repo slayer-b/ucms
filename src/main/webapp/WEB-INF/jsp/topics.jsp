@@ -14,31 +14,24 @@
     	.nav-white {
     		color: white !important;
 		}
-		.active {
-			text-decoration: overline;
-		}
     </style>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: darkblue;">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link nav-white" href=".">Домой <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white" href="<c:url value="topics"/>">Обсуждение</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="row">
+<%@ include file="/WEB-INF/jspf/nav.jspf" %>
+
+<div class="container">
+	<h1 class="mt-4">Темы для обсуждений</h1>
+	<hr>
     <div class="col-sm-11 ml-2 mt-2">
 		<c:forEach items="${topics}" var="item">
-			<div><a href="?name=${item.name}">${item.name}</a></div>
+			<div class="row">
+				<div class="col-md5">
+					<h3>${item.name}</h3>
+					<div>${item.value.substring(0, 100)}...</div>
+					<div><a class="btn btn-primary" href="/topics/${item.name}">Перейти</a></div>
+				</div>
+			</div>
+			<hr>
 		</c:forEach>
     </div>
     <div class="col-sm-1"></div>

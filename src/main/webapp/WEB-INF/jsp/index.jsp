@@ -14,32 +14,18 @@
     	.nav-white {
     		color: white !important;
 		}
-		.active {
-			text-decoration: overline;
-		}
     </style>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: darkblue;">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link nav-white" href=".">Домой <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white" href="<c:url value="topics"/>">Обсуждение</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-white disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<%@ include file="/WEB-INF/jspf/nav.jspf" %>
+
 <div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-7">
+		${texts['main']}
+	</div>
     <div class="col-sm-3">
-		<div class="col-sm-8">
-			${texts['main']}
-		</div>
         <h3 style="background-color: darkblue;color: white;">Бобро пожаловать</h3>
         Тут будет какой-то оЧЧень важный текст, я серьезно !!!
         <div class="mt-1"><a class="btn btn-lg btn-success">Подать заявку</a></div>
@@ -48,5 +34,67 @@
     </div>
     <div class="col-sm-1"></div>
 </div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    <div class="stats">
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>2
+                        </a>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-down icon"></i>12
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    <div class="stats">
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>2
+                        </a>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-down icon"></i>12
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -19,7 +19,7 @@ public class Topic {
     private String name;
 
     @NotNull
-    @Column(name = "value", nullable = false)
+    @Column(name = "value", nullable = false, length = 10_000)
     private String value;
 
     @Column(name = "active", nullable = false)
