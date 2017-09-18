@@ -25,6 +25,16 @@
     <div class="col-sm-10">
 		<h1 class="text-center">${topic.name}</h1>
 		${topic.value}
+		<hr>
+
+		<div class="col-sm-11 ml-2 mt-2">
+			<c:forEach items="${comments}" var="item">
+				<div class="container">
+					${item.comment}
+				</div>
+				<hr>
+			</c:forEach>
+		</div>
 	</div>
     <div class="col-sm-1"></div>
 </div>

@@ -71,6 +71,7 @@
             fields: [
                 { name: "id", type: "text", width: 50, editing: false },
                 { name: "comment", type: "textarea", width: 550 },
+                { name: "topic", type: "text", width: 10 },
                 { type: "control" }
             ]
         });

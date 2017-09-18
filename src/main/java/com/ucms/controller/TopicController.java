@@ -44,15 +44,19 @@ public class TopicController {
 		model.addAttribute("texts", configService.findAll());
 		Topic topic = topicService.findByName(name);
 		model.addAttribute("topic", topic);
+		List<Comment> comments = commentService.findByTopic(topic.getId());
+		model.addAttribute("comments", comments);
 		return new ModelAndView("topic", model);
 	}
 
-	@RequestMapping(value = "comment/{text}", method = RequestMethod.GET)
-	public void comment(@PathVariable("text") String text) {
+	@RequestMapping(value = "comment/{topicId}/{text}", method = RequestMethod.GET)
+	public Long comment(@PathVariable("topicId") Long topicId, @PathVariable("text") String text) {
 		LOGGER.debug("Save comment");
 		Comment comment = new Comment();
 		comment.setComment(text);
-		commentService.save(comment);
+		comment.setTopic(topicId);
+		Comment saved = commentService.save(comment);
+		return saved.getId();
 	}
 
 }

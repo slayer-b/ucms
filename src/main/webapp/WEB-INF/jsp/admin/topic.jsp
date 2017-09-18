@@ -81,6 +81,7 @@
 				}
             },
             fields: [
+                { name: "id", type: "text", width: 5, editing: false },
                 { name: "name", type: "text", width: 50, editing: false },
                 { name: "value", type: "textarea", width: 550 },
                 { name: "active", type: "checkbox", width: 50, sorting: false },

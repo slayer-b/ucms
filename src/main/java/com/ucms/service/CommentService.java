@@ -12,8 +12,8 @@ public class CommentService {
 	@Autowired
 	private CommentRepository repository;
 
-	public void save(Comment comment) {
-		repository.save(comment);
+	public Comment save(Comment comment) {
+		return repository.save(comment);
 	}
 
 	public List<Comment> findAllJson() {
@@ -22,5 +22,9 @@ public class CommentService {
 
 	public void delete(Long id) {
 		repository.delete(id);
+	}
+
+	public List<Comment> findByTopic(Long topic) {
+		return repository.findByTopic(topic);
 	}
 }
