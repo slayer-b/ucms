@@ -7,6 +7,8 @@
 	<title>${texts['main.title']}</title>
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/jsgrid.min.css"/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/tether.min.css"/>">
+	<script src="<c:url value="/js/tether.min.js"/>"></script>
     <script src="<c:url value="/js/jquery-3.2.1.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/js/jsgrid.min.js"/>"></script>
