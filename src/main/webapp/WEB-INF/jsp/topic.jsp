@@ -30,6 +30,7 @@
 		<div class="col-sm-11 ml-2 mt-2">
 			<c:forEach items="${comments}" var="item">
 				<div class="container">
+					${item.createDateTime}<br>
 					${item.comment}
 				</div>
 				<hr>
