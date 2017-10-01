@@ -6,29 +6,32 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Config {
 
-	@Id
+    @Id
     @NotNull
     @Size(max = 32)
     @Column(name = "key", nullable = false)
     private String key;
 
     @NotNull
-    @Column(name = "value", nullable = false)
+    @Column(name = "value", nullable = false, length = 10_000)
+    @Type(type = "org.hibernate.type.StringClobType")
     private String value;
 
-	public Config() {
+    public Config() {
 
-	}
+    }
 
-	public Config(String key, String value) {
-		this.key = key;
-		this.value = value;
-	}
+    public Config(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
 
-	public String getKey() {
+    public String getKey() {
         return key;
     }
 
