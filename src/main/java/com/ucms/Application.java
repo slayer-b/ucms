@@ -13,6 +13,10 @@ import org.springframework.context.annotation.Profile;
 import javax.sql.DataSource;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @Configuration
 @EnableAutoConfiguration
@@ -42,6 +46,18 @@ public class Application extends SpringBootServletInitializer {
 		basicDataSource.setUsername(username);
 		basicDataSource.setPassword(password);
 		basicDataSource.setUrl(dbUrl);
+
+		System.out.println("--------------");
+		try {
+			Connection connection = basicDataSource.getConnection();
+			PreparedStatement s = connection.prepareStatement("select 2 from comment");
+			ResultSet execute = s.executeQuery();
+			System.out.println("execute: " + execute);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("--------------");
 		return basicDataSource;
 	}
 
