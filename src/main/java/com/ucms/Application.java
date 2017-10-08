@@ -32,8 +32,8 @@ public class Application extends SpringBootServletInitializer {
         return application.sources(Application.class);
     }
 
-//    -Dspring.profiles.active=production
-    @Profile("production")
+//    -Dspring.profiles.active=prod
+    @Profile("prod")
     @Bean
 	public DataSource dataSource() throws URISyntaxException {
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
