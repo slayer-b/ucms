@@ -37,6 +37,7 @@ public class ApplicationProd extends SpringBootServletInitializer {
 		basicDataSource.setUsername(username);
 		basicDataSource.setPassword(password);
 		basicDataSource.setUrl(dbUrl);
+		basicDataSource.setDriverClassName("org.postgresql.Driver");
 
 		System.out.println("--------------");
 		try {
