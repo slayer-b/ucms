@@ -1,6 +1,8 @@
 package com.ucms;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,8 @@ import java.sql.SQLException;
 //    -Dspring.profiles.active=prod
 public class ApplicationProd extends SpringBootServletInitializer {
 
+	Logger LOGGER = LoggerFactory.getLogger(ApplicationProd.class);
+
     @Override
     protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
         return application.sources(ApplicationProd.class);
@@ -27,8 +31,9 @@ public class ApplicationProd extends SpringBootServletInitializer {
 
     @Bean
 	public DataSource dataSource() throws URISyntaxException {
+    	LOGGER.info("Create DS");
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
+		
 		String username = dbUri.getUserInfo().split(":")[0];
 		String password = dbUri.getUserInfo().split(":")[1];
 		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
@@ -41,11 +46,11 @@ public class ApplicationProd extends SpringBootServletInitializer {
 
 		System.out.println("--------------");
 		try {
+			LOGGER.info("Try to select");
 			Connection connection = basicDataSource.getConnection();
 			PreparedStatement s = connection.prepareStatement("select 2 from comment");
 			ResultSet execute = s.executeQuery();
 			System.out.println("execute: " + execute);
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
