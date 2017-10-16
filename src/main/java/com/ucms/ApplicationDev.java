@@ -10,9 +10,4 @@ import org.springframework.context.annotation.Profile;
 //    -Dspring.profiles.active=dev
 public class ApplicationDev extends SpringBootServletInitializer {
 
-    @Override
-    protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
-        return application.sources(ApplicationDev.class);
-    }
-
 }

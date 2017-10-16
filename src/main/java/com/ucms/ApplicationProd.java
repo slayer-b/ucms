@@ -22,12 +22,7 @@ import java.sql.SQLException;
 //    -Dspring.profiles.active=prod
 public class ApplicationProd extends SpringBootServletInitializer {
 
-	Logger LOGGER = LoggerFactory.getLogger(ApplicationProd.class);
-
-    @Override
-    protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
-        return application.sources(ApplicationProd.class);
-    }
+	private static Logger LOGGER = LoggerFactory.getLogger(ApplicationProd.class);
 
     @Bean
 	public DataSource dataSource() throws URISyntaxException {
